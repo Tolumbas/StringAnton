@@ -8,10 +8,11 @@ class myString
 private:
 	vector<char> string;
 public:
+	myString();
 	myString(const char*);
 	myString(const myString&);
-	myString operator=(const char*);
-	myString operator=(const myString&);
+	void operator=(const char*);
+	void operator=(const myString&);
 
 	myString operator+(const char*);
 	myString operator+(const myString&);
@@ -28,7 +29,7 @@ public:
 	myString operator+(const char*);
 	myString operator+(const myString&);
 
-	myString operator[](int);
+	char operator[](int);
 
 	friend istream& operator>>(istream& in, const myString& obj) {
 		while (true)
