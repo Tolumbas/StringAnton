@@ -26,22 +26,19 @@ public:
 	void operator+=(const char*);
 	void operator+=(const myString&);
 
-	myString operator+(const char*);
-	myString operator+(const myString&);
-
 	char* operator[](int);
 
-	friend istream& operator>>(istream& in, const myString& obj) {
+	friend istream& operator>>(istream& in, myString& obj) {
 		while (true)
 		{
-			char a;
-			a = in.get();
-			if (a == ' ')return in;
+			char* a;
+			*a = in.get();
+			if (*a == ' ')return in;
 			obj += a;
 		}
 	}
 	friend ostream& operator<<(ostream& out, const myString& obj) {
-		for (var a = 0;a < obj.string.size();a++) {
+		for (int a = 0;a < obj.string.size();a++) {
 			out << obj.string[a];
 		}
 		out << '\0';

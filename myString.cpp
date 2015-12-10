@@ -1,8 +1,12 @@
 #include "myString.h"
 #include <string.h>
+#include <iostream>
+
+using namespace std;
 
 myString::myString()
 {
+	string.clear();
 }
 
 myString::myString(const char * in)
@@ -23,7 +27,7 @@ myString::myString(const myString & in)
 bool myString::operator==(const myString & in)
 {
 	if (string.size() == in.string.size()) {
-		for (int a = 0;a < string.size()) {
+		for (int a = 0;a < string.size();a++) {
 			if (in.string[a] != string[a]) {
 				return false;
 			}
