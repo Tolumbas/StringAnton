@@ -6,7 +6,7 @@ using namespace std;
 class myString
 {
 private:
-	vector<char> string;
+	vector<char*> string;
 public:
 	myString();
 	myString(const char*);
@@ -29,7 +29,7 @@ public:
 	myString operator+(const char*);
 	myString operator+(const myString&);
 
-	char operator[](int);
+	char* operator[](int);
 
 	friend istream& operator>>(istream& in, const myString& obj) {
 		while (true)

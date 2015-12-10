@@ -8,7 +8,7 @@ myString::myString()
 myString::myString(const char * in)
 {
 	for (int a = 0;a < strlen(in);a++) {
-		string[a] = in[a];
+		*string[a] = in[a];
 	}
 }
 
@@ -88,7 +88,7 @@ myString myString::operator+(const char * in)
 	return operator+(out);
 }
 
-char myString::operator[](int in)
+char* myString::operator[](int in)
 {
 	return string[in];
 }
