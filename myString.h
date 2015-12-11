@@ -28,6 +28,11 @@ public:
 
 	char* operator[](int);
 
+	friend myString operator+(const char* in, const myString& obj2) {
+		myString obj1(in);
+		return obj1 + obj2;
+	}
+
 	friend istream& operator>>(istream& in, myString& obj) {
 		while (true)
 		{

@@ -79,6 +79,7 @@ void myString::operator=(const char * in)
 	operator=(out);
 }
 
+
 myString myString::operator+(const myString & in)
 {
 	myString out(*this);
