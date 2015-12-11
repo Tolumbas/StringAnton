@@ -9,6 +9,7 @@ private:
 	vector<char*> string;
 public:
 	myString();
+	~myString();
 	myString(const char*);
 	myString(const myString&);
 	void operator=(const char*);
@@ -34,17 +35,20 @@ public:
 	}
 
 	friend istream& operator>>(istream& in, myString& obj) {
+		obj.string.clear();
 		while (true)
 		{
-			char* a;
-			*a = in.get();
-			if (*a == ' ')return in;
-			obj += a;
+			char a;
+			a = in.get();
+			if (a == ' ' || a == '\n') {
+				return in; 
+			}
+			obj += &a;
 		}
 	}
 	friend ostream& operator<<(ostream& out, const myString& obj) {
 		for (int a = 0;a < obj.string.size();a++) {
-			out << obj.string[a];
+			out << *obj.string[a];
 		}
 		out << '\0';
 		return out;

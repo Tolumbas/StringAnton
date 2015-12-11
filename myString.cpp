@@ -9,10 +9,17 @@ myString::myString()
 	string.clear();
 }
 
+myString::~myString()
+{
+	string.clear();
+}
+
 myString::myString(const char * in)
 {
+	string.clear();
 	for (int a = 0;a < strlen(in);a++) {
-		*string[a] = in[a];
+		char* e = new char(in[a]);
+		string.push_back(e);
 	}
 }
 
@@ -78,7 +85,6 @@ void myString::operator=(const char * in)
 	myString out(in);
 	operator=(out);
 }
-
 
 myString myString::operator+(const myString & in)
 {
