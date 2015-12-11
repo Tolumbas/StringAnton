@@ -27,7 +27,7 @@ public:
 	void operator+=(const char*);
 	void operator+=(const myString&);
 
-	char* operator[](int);
+	char& operator[](int);
 
 	friend myString operator+(const char* in, const myString& obj2) {
 		myString obj1(in);
@@ -38,12 +38,12 @@ public:
 		obj.string.clear();
 		while (true)
 		{
-			char a;
-			a = in.get();
-			if (a == ' ' || a == '\n') {
+			char* e = new char();
+			*e = in.get();
+			if (*e == ' ' || *e == '\n') {
 				return in; 
 			}
-			obj += &a;
+			obj.string.push_back(e);
 		}
 	}
 	friend ostream& operator<<(ostream& out, const myString& obj) {

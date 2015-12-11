@@ -18,7 +18,8 @@ myString::myString(const char * in)
 {
 	string.clear();
 	for (int a = 0;a < strlen(in);a++) {
-		char* e = new char(in[a]);
+		char * e =new char();
+		*e = in[a];
 		string.push_back(e);
 	}
 }
@@ -35,7 +36,7 @@ bool myString::operator==(const myString & in)
 {
 	if (string.size() == in.string.size()) {
 		for (int a = 0;a < string.size();a++) {
-			if (in.string[a] != string[a]) {
+			if (*in.string[a] != *string[a]) {
 				return false;
 			}
 		}
@@ -47,7 +48,7 @@ bool myString::operator==(const myString & in)
 bool myString::operator==(const char * in)
 {
 	myString out(in);
-	return operator==(in);
+	return operator==(out);
 }
 
 bool myString::operator!=(const myString & in)
@@ -99,7 +100,7 @@ myString myString::operator+(const char * in)
 	return operator+(out);
 }
 
-char* myString::operator[](int in)
+char& myString::operator[](int in)
 {
-	return string[in];
+	return *string[in];
 }
